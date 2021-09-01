@@ -1,0 +1,119 @@
+.header {
+    position: absolute;
+    width: 100%;
+    padding: 48px 24px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav ul {
+    list-style: none;
+}
+.nav ul li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.logo {
+    z-index: 10;
+}
+/*************** link underline animation ***********/
+a {
+    display: inline-block;
+    position: relative;
+}
+a:after {
+    /* background: none repeat scroll 0 0 transparent; */
+    bottom: -3px;
+    left: 5%;
+    content: "";
+    display: block;
+    height: 2px;
+    /* left: 0%; */
+    position: absolute;
+    background: #fff;
+    /* transition: width 0.3s ease 0s, left 0.3s ease 0s; */
+    width: 90%;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+    transform: scaleX(0);
+}
+a:hover:after {
+    /* width: 90%;
+    left: 0; */
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+/*************** Navmenu Desktop ***************/
+@media (min-width: 768px) {
+    .header {
+        padding: 48px;
+    }
+    /* .open {
+        display: none;
+    } */
+    .menu-btn {
+        display: none;
+    }
+    .nav ul {
+        display: flex;
+    }
+    .nav ul li {
+        margin: 0 10px;
+    }
+    .nav ul li a {
+        font-family: "Alata", sans-serif;
+    }
+}
+/*************** Navmenu mobile ***************/
+@media (max-width: 768px) {
+    .nav {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        overflow-x: hidden;
+        background-color: black;
+        min-height: 100vh;
+        transition: 0.5s;
+    }
+    .nav.close {
+        width: 0;
+    }
+    .nav.open {
+        width: 100%;
+    }
+    .nav.open ul {
+        margin-top: 200px;
+        padding-left: 50px;
+    }
+    .nav.open ul li {
+        margin-bottom: 30px;
+    }
+
+    .nav ul li a {
+        text-transform: uppercase;
+        font-family: "Josefin Sans", sans-serif;
+        font-size: 24px;
+        font-weight: 300;
+        transition: 0.3s;
+    }
+    .nav.close ul li a {
+        display: none;
+    }
+
+    .menu-btn {
+        cursor: pointer;
+    }
+    .close-btn {
+        font-size: 48px;
+        font-weight: 300;
+        color: #fff;
+        z-index: 10;
+        position: absolute;
+        top: 30px;
+        right: 25px;
+    }
+}
